@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reminder Mobile</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="app-header">
+        <div class="header-content">
+          <h1>Nhắc việc</h1>
+          <p id="currentDate" class="subtitle"></p>
+        </div>
+        <div class="next-reminder" id="nextReminder"></div>
+      </header>
+
+      <main class="app-main">
+        <section class="card">
+          <h2>Thêm nhắc việc</h2>
+          <form id="reminderForm" autocomplete="off">
+            <label class="input-group">
+              <span>Tiêu đề</span>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Ví dụ: Uống thuốc, gọi cho mẹ..."
+                required
+                maxlength="80"
+              />
+            </label>
+
+            <label class="input-group">
+              <span>Thời điểm</span>
+              <input
+                type="datetime-local"
+                id="scheduledAt"
+                name="scheduledAt"
+                required
+              />
+            </label>
+
+            <label class="input-group">
+              <span>Ghi chú (tuỳ chọn)</span>
+              <textarea
+                id="notes"
+                name="notes"
+                rows="3"
+                placeholder="Thêm chi tiết để bạn nhớ rõ hơn"
+                maxlength="200"
+              ></textarea>
+            </label>
+
+            <button type="submit" class="primary-btn">Lưu nhắc việc</button>
+          </form>
+        </section>
+
+        <section class="card">
+          <div class="section-header">
+            <h2>Danh sách nhắc việc</h2>
+            <button id="toggleCompleted" type="button" class="text-btn">
+              Hiện lịch sử
+            </button>
+          </div>
+          <ul id="reminderList" class="reminder-list"></ul>
+          <p id="emptyState" class="empty-state hidden">
+            Chưa có nhắc việc nào. Hãy thêm việc quan trọng đầu tiên của bạn!
+          </p>
+        </section>
+
+        <section class="card hidden" id="completedSection">
+          <div class="section-header">
+            <h2>Đã hoàn thành</h2>
+            <button id="clearCompleted" type="button" class="text-btn">
+              Xoá tất cả
+            </button>
+          </div>
+          <ul id="completedList" class="reminder-list"></ul>
+          <p id="completedEmpty" class="empty-state">
+            Bạn chưa hoàn thành nhắc việc nào.
+          </p>
+        </section>
+      </main>
+
+      <footer class="app-footer">
+        <p>
+          Dữ liệu được lưu trên thiết bị của bạn. Nhắc việc sẽ được cập nhật tự động.
+        </p>
+      </footer>
+    </div>
+
+    <script src="javascript.js" defer></script>
+  </body>
+</html>
